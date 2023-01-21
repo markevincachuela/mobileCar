@@ -6,13 +6,14 @@ package com.example.mobilecar
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.mobilecar.ui.theme.MobileCarTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    Greeting("Android","Description")
                 }
             }
         }
@@ -33,14 +34,25 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun Greeting(name: String, description: String) {
+    Row {
+        Text(text = "ROOOW")
+        Spacer(modifier = Modifier.width(10.dp))
+        Column {
+            Text(text = "Hello $name!")
+            Text(text = "Description $description")
+        }
+    }
+
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     MobileCarTheme {
-        Greeting("Android")
+        Surface(modifier = Modifier.fillMaxSize()) {
+
+        }
+        Greeting("Android","Description")
     }
 }
